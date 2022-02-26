@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EditView from "./todo/edit"
 
 
 export type task = {
@@ -10,6 +11,11 @@ export type task = {
 }
 
 export default function Todo(task: task) {
+  const [isEditing, setEditing] = useState(false)
+  if (isEditing) {
+    return <EditView {...task} />
+  }
+
   return (
     <div>
       <li className="todo stack-small">
@@ -20,7 +26,7 @@ export default function Todo(task: task) {
           </label>
         </div>
         <div className="btn-group">
-          <button type="button" className="btn">
+          <button type="button" className="btn" onClick={() => setEditing(true)}>
             Edit <span className="visually-hidden">{task.name}</span>
           </button>
           <button type="button" className="btn btn__danger" onClick={() => task.toggleDelete(task.id)}>
