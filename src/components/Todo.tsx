@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import EditView from "./todo/edit"
-
 
 export type task = {
   id: string
@@ -12,28 +10,56 @@ export type task = {
 
 export default function Todo(task: task) {
   const [isEditing, setEditing] = useState(false)
-  if (isEditing) {
-    return <EditView {...task} />
-  }
 
-  return (
-    <div>
-      <li className="todo stack-small">
-        <div className="c-cb">
-          <input id="todo-0" type="checkbox" defaultChecked={task.completed} onChange={() => task.toggleTaskCompleted(task.id)} />
-          <label className="todo-label" htmlFor={task.id}>
-            {task.name}
-          </label>
-        </div>
-        <div className="btn-group">
-          <button type="button" className="btn" onClick={() => setEditing(true)}>
-            Edit <span className="visually-hidden">{task.name}</span>
-          </button>
-          <button type="button" className="btn btn__danger" onClick={() => task.toggleDelete(task.id)}>
-            Delete <span className="visually-hidden">{task.name}</span>
-          </button>
-        </div>
-      </li>
+  const editingTemplate = (
+    <form className="stack-small">
+      <div className="form-group">
+        <label className="todo-label" htmlFor={task.id}>
+          New name for {task.name}
+        </label>
+        <input id={task.id} className="todo-text" type="text" />
+      </div>
+      <div className="btn-group">
+        <button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>
+          Cancel
+          <span className="visually-hidden">renaming {task.name}</span>
+        </button>
+        <button type="submit" className="btn btn__primary todo-edit">
+          Save
+          <span className="visually-hidden">new name for {task.name}</span>
+        </button>
+      </div>
+    </form>
+  );
+  const viewTemplate = (
+    <div className="stack-small">
+      <div className="c-cb">
+        <input
+          id={task.id}
+          type="checkbox"
+          defaultChecked={task.completed}
+          onChange={() => task.toggleTaskCompleted(task.id)}
+        />
+        <label className="todo-label" htmlFor={task.id}>
+          {task.name}
+        </label>
+      </div>
+      <div className="btn-group">
+        <button type="button" className="btn" onClick={() => setEditing(true)}>
+          Edit <span className="visually-hidden">{task.name}</span>
+        </button>
+        <button
+          type="button"
+          className="btn btn__danger"
+          onClick={() => task.toggleDelete(task.id)}
+        >
+          Delete <span className="visually-hidden">{task.name}</span>
+        </button>
+      </div>
     </div>
   );
+
+
+  return <div>{isEditing ? editingTemplate : viewTemplate}</div>;
+
 }

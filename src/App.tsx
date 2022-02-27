@@ -6,7 +6,6 @@ import type { category } from './components/FilterButton'
 import Form from './components/Form'
 import { nanoid } from "nanoid"
 
-
 function App() {
 
   const categories: category[] = [
@@ -25,24 +24,11 @@ function App() {
     {
       id: `todo-${nanoid()}`,
       name: "Eat",
-      completed: true,
-      toggleTaskCompleted: toggleTaskCompleted,
-      toggleDelete: toggleDelete
-    },
-    {
-      id: `todo-${nanoid()}`,
-      name: "Sleep",
       completed: false,
       toggleTaskCompleted: toggleTaskCompleted,
-      toggleDelete: toggleDelete
+      toggleDelete: toggleDelete,
     },
-    {
-      id: `todo-${nanoid()}`,
-      name: "Repeat",
-      completed: false,
-      toggleTaskCompleted: toggleTaskCompleted,
-      toggleDelete: toggleDelete
-    },
+
   ]
 
   const [taskList, setTasks] = useState(tasks);
@@ -57,7 +43,7 @@ function App() {
       name: name,
       completed: false,
       toggleTaskCompleted: toggleTaskCompleted,
-      toggleDelete: toggleDelete
+      toggleDelete: toggleDelete,
     }
     setTasks([...taskList, newTask])
   }
@@ -76,7 +62,6 @@ function App() {
     const remainTaskList = taskList.filter(task => id !== task.id)
     setTasks(remainTaskList)
   }
-
 
   const todoList = taskList.map(task =>
     <Todo
