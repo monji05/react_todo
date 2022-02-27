@@ -6,18 +6,31 @@ export type task = {
   completed: boolean
   toggleTaskCompleted: Function
   toggleDelete: Function
+  editTask: Function
 }
 
 export default function Todo(task: task) {
   const [isEditing, setEditing] = useState(false)
+  const [newName, setNewName] = useState(task.name)
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setNewName(e.target.value)
+  }
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    task.editTask(task.id, newName)
+    setNewName("")
+    setEditing(false)
+  }
 
   const editingTemplate = (
-    <form className="stack-small">
+    <form className="stack-small" onSubmit={(e) => handleSubmit(e)}>
       <div className="form-group">
         <label className="todo-label" htmlFor={task.id}>
           New name for {task.name}
         </label>
-        <input id={task.id} className="todo-text" type="text" />
+        <input id={task.id} className="todo-text" type="text" value={newName} onChange={(e) => handleChange(e)} />
       </div>
       <div className="btn-group">
         <button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>

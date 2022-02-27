@@ -27,6 +27,7 @@ function App() {
       completed: false,
       toggleTaskCompleted: toggleTaskCompleted,
       toggleDelete: toggleDelete,
+      editTask: editTask,
     },
 
   ]
@@ -44,6 +45,7 @@ function App() {
       completed: false,
       toggleTaskCompleted: toggleTaskCompleted,
       toggleDelete: toggleDelete,
+      editTask: editTask,
     }
     setTasks([...taskList, newTask])
   }
@@ -63,6 +65,16 @@ function App() {
     setTasks(remainTaskList)
   }
 
+  function editTask(id: string, newName: string) {
+    const editedTaskList = taskList.map(task => {
+      if (id === task.id) {
+        return { ...task, name: newName }
+      }
+      return task
+    })
+    setTasks(editedTaskList)
+  }
+
   const todoList = taskList.map(task =>
     <Todo
       id={task.id}
@@ -71,6 +83,7 @@ function App() {
       key={task.id}
       toggleTaskCompleted={toggleTaskCompleted}
       toggleDelete={toggleDelete}
+      editTask={editTask}
     />
   )
 
