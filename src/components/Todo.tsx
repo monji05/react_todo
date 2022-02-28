@@ -11,7 +11,7 @@ export type task = {
 
 export default function Todo(task: task) {
   const [isEditing, setEditing] = useState(false)
-  const [newName, setNewName] = useState(task.name)
+  const [newName, setNewName] = useState("")
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNewName(e.target.value)
@@ -19,6 +19,7 @@ export default function Todo(task: task) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (newName === "") return
     task.editTask(task.id, newName)
     setNewName("")
     setEditing(false)
