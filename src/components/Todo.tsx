@@ -45,6 +45,7 @@ export default function Todo(task: task) {
       </div>
     </form>
   );
+
   const viewTemplate = (
     <div className="stack-small">
       <div className="c-cb">
@@ -72,7 +73,6 @@ export default function Todo(task: task) {
       </div>
     </div>
   );
-
 
   return <div>{isEditing ? editingTemplate : viewTemplate}</div>;
 

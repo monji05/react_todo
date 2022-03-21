@@ -1,17 +1,20 @@
 import React from "react"
 
-
-export type category = {
-  name: string
+export type props = {
+  name: string,
+  setFilter: any
 }
 
-
-export default function FilterButton(category: category) {
+export default function FilterButton(props: props) {
   return (
-    <button type="button" className="btn toggle-btn" aria-pressed="true">
-      <span className="visually-hidden">Show </span>
-      <span>{category.name}</span>
-      <span className="visually-hidden"> tasks</span>
+    <button
+      type="button"
+      className="btn toggle-btn"
+      aria-pressed="true"
+      onClick={() => props.setFilter(props.name)}
+    >
+      <span>{props.name}</span>
     </button>
   )
+
 }
