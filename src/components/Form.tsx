@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid"
+import { Fab } from "@mui/material";
+
 
 export default function Form(props: any) {
 
@@ -22,18 +24,22 @@ export default function Form(props: any) {
           What needs to be done?
         </label>
       </h2>
-      <input
-        type="text"
-        id={`todo-${nanoid()}`}
-        className="input input__lg"
-        name="text"
-        autoComplete="off"
-        value={name}
-        onChange={(e) => handleChange(e)}
-      />
-      <button type="submit" className="btn btn__primary btn__lg">
-        Add
-      </button>
+      <div className="input-form">
+        <input
+          type="text"
+          id={`todo-${nanoid()}`}
+          name="text"
+          autoComplete="off"
+          className="input input__lg"
+          value={name}
+          onChange={(e) => handleChange(e)}
+        />
+        <Fab color="primary" aria-label="+" className="addIcon">
+          <button type="submit" className="add-text">
+            +
+          </button>
+        </Fab>
+      </div>
     </form>
   )
 }

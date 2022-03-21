@@ -73,7 +73,6 @@ function App() {
     }
   ]
 
-
   const categoryList = categories.map(category => (
     <FilterButton
       name={category.name}

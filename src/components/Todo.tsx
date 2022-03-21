@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Checkbox } from '@mui/material'
 
 export type task = {
   id: string
@@ -49,9 +50,9 @@ export default function Todo(task: task) {
   const viewTemplate = (
     <div className="stack-small">
       <div className="c-cb">
-        <input
+        <Checkbox
+          sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
           id={task.id}
-          type="checkbox"
           defaultChecked={task.completed}
           onChange={() => task.toggleTaskCompleted(task.id)}
         />
