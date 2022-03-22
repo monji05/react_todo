@@ -34,7 +34,7 @@ export default function Form(props: any) {
           value={name}
           onChange={(e) => handleChange(e)}
         />
-        <Fab color="primary" aria-label="+" className="addIcon">
+        <Fab color="primary" aria-label="+" className="add-icon">
           <button type="submit" className="add-text">
             +
           </button>

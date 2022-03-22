@@ -263,10 +263,19 @@ body {
   margin-right: 10px;
 }
 
-.addIcon {
-  box-shadow: none;
-}
-
 .add-text {
   font-size: 30px;
+}
+
+.todo-label {
+  vertical-align: middle;
+}
+
+.todo-view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-group {
+  padding-top: 10px;
 }

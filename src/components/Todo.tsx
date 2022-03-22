@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Checkbox } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 export type task = {
   id: string
@@ -33,8 +35,6 @@ export default function Todo(task: task) {
           New name for {task.name}
         </label>
         <input id={task.id} className="todo-text" type="text" value={newName} onChange={(e) => handleChange(e)} />
-      </div>
-      <div className="btn-group">
         <button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>
           Cancel
           <span className="visually-hidden">renaming {task.name}</span>
@@ -48,29 +48,33 @@ export default function Todo(task: task) {
   );
 
   const viewTemplate = (
-    <div className="stack-small">
+    <div className="todo-view">
       <div className="c-cb">
         <Checkbox
           sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
           id={task.id}
-          defaultChecked={task.completed}
+          checked={task.completed}
           onChange={() => task.toggleTaskCompleted(task.id)}
         />
         <label className="todo-label" htmlFor={task.id}>
           {task.name}
         </label>
       </div>
-      <div className="btn-group">
-        <button type="button" className="btn" onClick={() => setEditing(true)}>
-          Edit <span className="visually-hidden">{task.name}</span>
-        </button>
-        <button
+      <div className="icon-group">
+        <EditIcon
           type="button"
-          className="btn btn__danger"
+          onClick={() => setEditing(true)}
+          sx={{
+            fontSize: 30
+          }}
+        />
+        <DeleteIcon
+          type="button"
           onClick={() => task.toggleDelete(task.id)}
-        >
-          Delete <span className="visually-hidden">{task.name}</span>
-        </button>
+          sx={{
+            fontSize: 30
+          }}
+        />
       </div>
     </div>
   );
