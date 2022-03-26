@@ -57,8 +57,6 @@ function App() {
     setTasks(editedTaskList)
   }
 
-  const remainTaskText = taskList.length > 1 ? "tasks" : "task"
-
   const [filter, setFilter] = useState('All')
 
   const categories = [
@@ -109,6 +107,8 @@ function App() {
       />
     )
 
+  const remainTaskText = todoList.length > 1 ? "tasks" : "task"
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
@@ -125,7 +125,7 @@ function App() {
         {todoList}
       </ul>
     </div>
-    );
+  );
 }
 
 export default App;
