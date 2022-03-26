@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid"
-import { Fab } from "@mui/material";
-
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export default function Form(props: any) {
 
@@ -34,11 +33,14 @@ export default function Form(props: any) {
           value={name}
           onChange={(e) => handleChange(e)}
         />
-        <Fab color="primary" aria-label="+" className="add-icon">
-          <button type="submit" className="add-text">
-            +
-          </button>
-        </Fab>
+        <button type="submit" className="button-icon">
+          <AddCircleIcon
+            color="primary"
+            sx={{
+              fontSize: 50
+            }}
+          />
+        </button>
       </div>
     </form>
   )

@@ -83,14 +83,14 @@ export default function Todo(task: task) {
           type="button"
           onClick={() => setEditing(true)}
           sx={{
-            fontSize: 30
+            fontSize: 35
           }}
         />
         <DeleteIcon
           type="button"
           onClick={() => task.toggleDelete(task.id)}
           sx={{
-            fontSize: 30
+            fontSize: 35
           }}
         />
       </div>
