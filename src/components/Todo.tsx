@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Checkbox } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from '@mui/icons-material/Check';
 
 export type task = {
   id: string
@@ -28,20 +30,36 @@ export default function Todo(task: task) {
     setEditing(false)
   }
 
+  function handleCancel() {
+    if (newName !== "") {
+      setNewName("")
+    }
+    setEditing(false)
+  }
+
   const editingTemplate = (
     <form className="stack-small" onSubmit={(e) => handleSubmit(e)}>
-      <div className="form-group">
-        <label className="todo-label" htmlFor={task.id}>
-          New name for {task.name}
-        </label>
+      <div className="form-group form-edit">
         <input id={task.id} className="todo-text" type="text" value={newName} onChange={(e) => handleChange(e)} />
-        <button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>
-          Cancel
-          <span className="visually-hidden">renaming {task.name}</span>
+        <button>
+          <CloseIcon
+            type="button"
+            className="button-icon"
+            onClick={() => handleCancel()}
+            sx={{
+              fontSize: 35
+            }}
+          />
         </button>
-        <button type="submit" className="btn btn__primary todo-edit">
-          Save
-          <span className="visually-hidden">new name for {task.name}</span>
+        <button>
+          <CheckIcon
+            type="submit"
+            className="button-icon"
+            sx={{
+              fontSize: 35
+            }}
+          >
+          </CheckIcon>
         </button>
       </div>
     </form>

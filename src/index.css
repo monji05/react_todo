@@ -279,3 +279,17 @@ body {
 .icon-group {
   padding-top: 10px;
 }
+
+.form-edit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-icon {
+  cursor: pointer;
+  margin-top: 0.3rem;
+}
+
+.c-cb {
+  margin-bottom: auto;
+}
