@@ -64,12 +64,15 @@ function App() {
   const categories = [
     {
       name: "All",
+      isPressed: true
     },
     {
       name: "Active",
+      isPressed: false
     },
     {
       name: "Completed",
+      isPressed: false
     }
   ]
 
@@ -77,6 +80,7 @@ function App() {
     <FilterButton
       name={category.name}
       setFilter={() => setFilter(category.name)}
+      isPressed={category.name === filter}
     />
   ))
 
