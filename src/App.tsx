@@ -107,7 +107,6 @@ function App() {
       />
     )
 
-  const remainTaskText = todoList.length > 1 ? "tasks" : "task"
 
   return (
     <div className="todoapp stack-large">
@@ -116,9 +115,6 @@ function App() {
       <div className="filters btn-group stack-exception">
         {categoryList}
       </div>
-      <h2 id="list-heading">
-        {todoList.length}{remainTaskText} remaining
-      </h2>
       <ul
         className="todo-list stack-large stack-exception"
       >

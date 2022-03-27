@@ -37,14 +37,14 @@ const EditTodoView = (task: props) => {
   return (
     <form className="stack-small" onSubmit={(e) => handleSubmit(e)}>
       <div className="form-group form-edit">
-        <input id={task.id} className="todo-text" type="text" value={newName} onChange={(e) => handleChange(e)} />
+        <input id={task.id} className="input todo-text" type="text" value={newName} onChange={(e) => handleChange(e)} />
         <button>
           <CloseIcon
             type="button"
             className="button-icon"
             onClick={() => handleCancel()}
             sx={{
-              fontSize: 35
+              fontSize: 25
             }}
           />
         </button>
@@ -53,7 +53,7 @@ const EditTodoView = (task: props) => {
             type="submit"
             className="button-icon"
             sx={{
-              fontSize: 35
+              fontSize: 25
             }}
           >
           </CheckIcon>

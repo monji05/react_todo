@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid"
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 export default function Form(props: any) {
 
@@ -34,10 +34,10 @@ export default function Form(props: any) {
           onChange={(e) => handleChange(e)}
         />
         <button type="submit" className="button-icon">
-          <AddCircleIcon
+          <AddTaskIcon
             color="primary"
             sx={{
-              fontSize: 50
+              fontSize: 38
             }}
           />
         </button>

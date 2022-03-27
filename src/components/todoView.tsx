@@ -18,7 +18,7 @@ const TodoView = (task: props) => {
     <div className="todo-view">
       <div className="c-cb">
         <Checkbox
-          sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+          sx={{ '& .MuiSvgIcon-root': { fontSize: 25 } }}
           id={task.id}
           checked={task.completed}
           onChange={() => task.toggleTaskCompleted(task.id)}
@@ -32,14 +32,14 @@ const TodoView = (task: props) => {
           type="button"
           onClick={() => task.setEditing(true)}
           sx={{
-            fontSize: 35
+            fontSize: 25
           }}
         />
         <DeleteIcon
           type="button"
           onClick={() => task.toggleDelete(task.id)}
           sx={{
-            fontSize: 35
+            fontSize: 25
           }}
         />
       </div>
