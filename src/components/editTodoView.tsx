@@ -41,7 +41,7 @@ const EditTodoView = (task: props) => {
         <button>
           <CloseIcon
             type="button"
-            className="button-icon"
+            className="button-icon close-icon"
             onClick={() => handleCancel()}
             sx={{
               fontSize: 25
@@ -51,7 +51,7 @@ const EditTodoView = (task: props) => {
         <button>
           <CheckIcon
             type="submit"
-            className="button-icon"
+            className="button-icon save-icon"
             sx={{
               fontSize: 25
             }}

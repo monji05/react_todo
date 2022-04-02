@@ -242,7 +242,7 @@ body {
 
 .todo-text {
   width: 100%;
-  min-height: 4.4rem;
+  min-height: 2.2rem;
   padding: 0.4rem 0.8rem;
   border: 2px solid #565656;
 }
@@ -288,4 +288,13 @@ body {
 .c-cb {
   display: flex;
   justify-content: space-between;
+}
+
+.close-icon, .delete-icon {
+  color: #DC322F;
+
+}
+
+.save-icon, .edit-icon {
+  color: #819E07;
 }

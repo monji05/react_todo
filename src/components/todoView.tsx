@@ -30,6 +30,7 @@ const TodoView = (task: props) => {
       <div className="icon-group">
         <EditIcon
           type="button"
+          className="edit-icon"
           onClick={() => task.setEditing(true)}
           sx={{
             fontSize: 25
@@ -37,6 +38,7 @@ const TodoView = (task: props) => {
         />
         <DeleteIcon
           type="button"
+          className="delete-icon"
           onClick={() => task.toggleDelete(task.id)}
           sx={{
             fontSize: 25
