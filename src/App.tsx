@@ -110,13 +110,12 @@ function App() {
 
   return (
     <div className="todoapp stack-large">
-      <h1>TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
         {categoryList}
       </div>
       <ul
-        className="todo-list stack-large stack-exception"
+        className="stack-large stack-exception"
       >
         {todoList}
       </ul>
