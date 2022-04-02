@@ -257,21 +257,21 @@ body {
   border:0.2rem solid #93A1A1;
   cursor: pointer;
   text-transform: capitalize;
-  margin-right: 10px;
+  margin-right: 0.5rem;
   border-radius: 0.5rem;
 }
 
 .todo-label {
-  vertical-align: middle;
+  margin-top: 11px;
+  height: auto;
 }
-
 .todo-view {
   display: flex;
   justify-content: space-between;
 }
 
 .icon-group {
-  padding-top: 10px;
+  padding-top: 0.9rem;
 }
 
 .form-edit {
@@ -285,5 +285,6 @@ body {
 }
 
 .c-cb {
-  margin-bottom: auto;
+  display: flex;
+  justify-content: space-between;
 }
